@@ -24,6 +24,13 @@
             font-weight: bold;
         }
 
+        .sponsored {
+            text-align: center;
+            color: #00e5ff;
+            font-size: 14px;
+            margin-top: -10px;
+        }
+
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -100,7 +107,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            right: 30px;
+            right: 100px; /* Adjusted to appear to the left of the filter button */
             bottom: 70px;
             background-color: #111;
             min-width: 200px;
@@ -134,6 +141,7 @@
 <body>
 
     <h1>FarrenLabs</h1>
+    <p class="sponsored">Sponsored by FARREN corp</p>
 
     <div class="tabs">
         <button class="tablink" onclick="openTab('CPU-Processors')">CPU-Processors</button>
@@ -222,7 +230,7 @@
 
     <!-- Dropdown Menu -->
     <div id="filterDropdown" class="dropdown-content">
-        <button onclick="openTab('CPU-Processors')">CPU-Processors</button>
+        <button onclick="openTab('CPU-Processors')">CPU (Processors)</button>
         <button onclick="openTab('Graphics-Cards')">Graphics Cards</button>
         <button onclick="openTab('Gaming-Mouse')">Gaming Mouse</button>
         <button onclick="openTab('Mouse-Pads')">Mouse Pads</button>
@@ -242,10 +250,4 @@
     <script>
         function openTab(tabName) {
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < tablinks.length; i++) {
-               
+            tabcontent =
