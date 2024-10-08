@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PC Components</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #00e5ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00e5ff;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #111;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .tabs button {
+            background-color: #111;
+            color: #00e5ff;
+            padding: 14px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .tabs button:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        .tabs button.active {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #111;
+            color: #00e5ff;
+            text-align: center;
+            border-top: 2px solid #00e5ff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #111;
+            color: #00e5ff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>PC Components</h1>
+
+    <div class="tabs">
+        <button class="tablink" onclick="openTab('CPU-Processors')">CPU-Processors</button>
+        <button class="tablink" onclick="openTab('Graphics-Cards')">Graphics Cards</button>
+        <button class="tablink" onclick="openTab('Gaming-Mouse')">Gaming Mouse</button>
+        <button class="tablink" onclick="openTab('Mouse-Pads')">Mouse Pads</button>
+        <button class="tablink" onclick="openTab('Speakers')">Speakers</button>
+        <button class="tablink" onclick="openTab('CPU-Coolers')">CPU Coolers</button>
+        <button class="tablink" onclick="openTab('SSDs')">Solid State Drives (SSDs)</button>
+        <button class="tablink" onclick="openTab('Keyboards')">Keyboards</button>
+        <button class="tablink" onclick="openTab('PC-Case')">PC Case</button>
+        <button class="tablink" onclick="openTab('Networking')">Networking</button>
+        <button class="tablink" onclick="openTab('Motherboard')">Motherboard</button>
+        <button class="tablink" onclick="openTab('Hard-Drives')">Hard Drives</button>
+        <button class="tablink" onclick="openTab('Headphones-Headsets')">Headphones & Headsets</button>
+        <button class="tablink" onclick="openTab('Power-Supply')">Power Supply</button>
+        <button class="tablink" onclick="openTab('Upgrade-Kits')">Upgrade Kits</button>
+    </div>
+
+    <div id="CPU-Processors" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Graphics-Cards" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Gaming-Mouse" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Mouse-Pads" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Speakers" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="CPU-Coolers" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="SSDs" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Keyboards" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="PC-Case" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Networking" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Motherboard" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Hard-Drives" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Headphones-Headsets" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Power-Supply" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <div id="Upgrade-Kits" class="tab-content">
+        <p>Still under construction</p>
+    </div>
+
+    <footer>
+        &copy; 2024 PC Components Website
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
