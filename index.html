@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PC Components</title>
+    <title>FarrenLabs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +12,8 @@
             color: #00e5ff;
             margin: 0;
             padding: 0;
+            position: relative;
+            min-height: 100vh;
         }
 
         h1 {
@@ -19,6 +21,7 @@
             color: #00e5ff;
             padding: 20px 0;
             margin: 0;
+            font-weight: bold;
         }
 
         .tabs {
@@ -73,11 +76,64 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* Filter dropdown button */
+        .filter-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #111;
+            color: #00e5ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        /* Dropdown styling */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 30px;
+            bottom: 70px;
+            background-color: #111;
+            min-width: 200px;
+            border-radius: 5px;
+            overflow: auto;
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            background-color: #111;
+            color: #00e5ff;
+            padding: 10px 16px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        /* Show the dropdown content */
+        .dropdown-content.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <h1>PC Components</h1>
+    <h1>FarrenLabs</h1>
 
     <div class="tabs">
         <button class="tablink" onclick="openTab('CPU-Processors')">CPU-Processors</button>
@@ -158,8 +214,30 @@
     </div>
 
     <footer>
-        &copy; 2024 PC Components Website
+        &copy; 2024 FarrenLabs
     </footer>
+
+    <!-- Filter Button -->
+    <button class="filter-button" onclick="toggleDropdown()">Filter</button>
+
+    <!-- Dropdown Menu -->
+    <div id="filterDropdown" class="dropdown-content">
+        <button onclick="openTab('CPU-Processors')">CPU-Processors</button>
+        <button onclick="openTab('Graphics-Cards')">Graphics Cards</button>
+        <button onclick="openTab('Gaming-Mouse')">Gaming Mouse</button>
+        <button onclick="openTab('Mouse-Pads')">Mouse Pads</button>
+        <button onclick="openTab('Speakers')">Speakers</button>
+        <button onclick="openTab('CPU-Coolers')">CPU Coolers</button>
+        <button onclick="openTab('SSDs')">Solid State Drives (SSDs)</button>
+        <button onclick="openTab('Keyboards')">Keyboards</button>
+        <button onclick="openTab('PC-Case')">PC Case</button>
+        <button onclick="openTab('Networking')">Networking</button>
+        <button onclick="openTab('Motherboard')">Motherboard</button>
+        <button onclick="openTab('Hard-Drives')">Hard Drives</button>
+        <button onclick="openTab('Headphones-Headsets')">Headphones & Headsets</button>
+        <button onclick="openTab('Power-Supply')">Power Supply</button>
+        <button onclick="openTab('Upgrade-Kits')">Upgrade Kits</button>
+    </div>
 
     <script>
         function openTab(tabName) {
@@ -170,12 +248,4 @@
             }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            event.currentTarget.classList.add("active");
-        }
-    </script>
-
-</body>
-</html>
+               
