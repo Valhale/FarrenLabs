@@ -31,57 +31,29 @@
             margin-top: -10px;
         }
 
-        .tabs {
+        .options {
             display: flex;
-            flex-wrap: wrap;
-            background-color: #111;
-            justify-content: center;
-            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
         }
 
-        .tabs button {
+        .options button {
             background-color: #111;
             color: #00e5ff;
             padding: 14px 20px;
-            margin: 5px;
+            margin: 10px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
             font-size: 16px;
+            width: 300px;
         }
 
-        .tabs button:hover {
+        .options button:hover {
             background-color: #00e5ff;
             color: #000;
-        }
-
-        .tabs button.active {
-            background-color: #00e5ff;
-            color: #000;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background-color: #111;
-            color: #00e5ff;
-            text-align: center;
-            border-top: 2px solid #00e5ff;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #111;
-            color: #00e5ff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
         }
 
         /* Filter dropdown button */
@@ -107,7 +79,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            right: 100px; /* Adjusted to appear to the left of the filter button */
+            right: 30px;
             bottom: 70px;
             background-color: #111;
             min-width: 200px;
@@ -143,111 +115,69 @@
     <h1>FarrenLabs</h1>
     <p class="sponsored">Sponsored by FARREN corp</p>
 
-    <div class="tabs">
-        <button class="tablink" onclick="openTab('CPU-Processors')">CPU-Processors</button>
-        <button class="tablink" onclick="openTab('Graphics-Cards')">Graphics Cards</button>
-        <button class="tablink" onclick="openTab('Gaming-Mouse')">Gaming Mouse</button>
-        <button class="tablink" onclick="openTab('Mouse-Pads')">Mouse Pads</button>
-        <button class="tablink" onclick="openTab('Speakers')">Speakers</button>
-        <button class="tablink" onclick="openTab('CPU-Coolers')">CPU Coolers</button>
-        <button class="tablink" onclick="openTab('SSDs')">Solid State Drives (SSDs)</button>
-        <button class="tablink" onclick="openTab('Keyboards')">Keyboards</button>
-        <button class="tablink" onclick="openTab('PC-Case')">PC Case</button>
-        <button class="tablink" onclick="openTab('Networking')">Networking</button>
-        <button class="tablink" onclick="openTab('Motherboard')">Motherboard</button>
-        <button class="tablink" onclick="openTab('Hard-Drives')">Hard Drives</button>
-        <button class="tablink" onclick="openTab('Headphones-Headsets')">Headphones & Headsets</button>
-        <button class="tablink" onclick="openTab('Power-Supply')">Power Supply</button>
-        <button class="tablink" onclick="openTab('Upgrade-Kits')">Upgrade Kits</button>
+    <div class="options">
+        <button onclick="showPopup()">CPU (Processors)</button>
+        <button onclick="showPopup()">Graphics Cards</button>
+        <button onclick="showPopup()">Gaming Mouse</button>
+        <button onclick="showPopup()">Mouse Pads</button>
+        <button onclick="showPopup()">Speakers</button>
+        <button onclick="showPopup()">CPU Coolers</button>
+        <button onclick="showPopup()">Solid State Drives (SSDs)</button>
+        <button onclick="showPopup()">Keyboards</button>
+        <button onclick="showPopup()">PC Case</button>
+        <button onclick="showPopup()">Networking</button>
+        <button onclick="showPopup()">Motherboard</button>
+        <button onclick="showPopup()">Hard Drives</button>
+        <button onclick="showPopup()">Headphones & Headsets</button>
+        <button onclick="showPopup()">Power Supply</button>
+        <button onclick="showPopup()">Upgrade Kits</button>
     </div>
-
-    <div id="CPU-Processors" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Graphics-Cards" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Gaming-Mouse" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Mouse-Pads" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Speakers" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="CPU-Coolers" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="SSDs" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Keyboards" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="PC-Case" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Networking" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Motherboard" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Hard-Drives" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Headphones-Headsets" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Power-Supply" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <div id="Upgrade-Kits" class="tab-content">
-        <p>Still under construction</p>
-    </div>
-
-    <footer>
-        &copy; 2024 FarrenLabs
-    </footer>
 
     <!-- Filter Button -->
     <button class="filter-button" onclick="toggleDropdown()">Filter</button>
 
     <!-- Dropdown Menu -->
     <div id="filterDropdown" class="dropdown-content">
-        <button onclick="openTab('CPU-Processors')">CPU (Processors)</button>
-        <button onclick="openTab('Graphics-Cards')">Graphics Cards</button>
-        <button onclick="openTab('Gaming-Mouse')">Gaming Mouse</button>
-        <button onclick="openTab('Mouse-Pads')">Mouse Pads</button>
-        <button onclick="openTab('Speakers')">Speakers</button>
-        <button onclick="openTab('CPU-Coolers')">CPU Coolers</button>
-        <button onclick="openTab('SSDs')">Solid State Drives (SSDs)</button>
-        <button onclick="openTab('Keyboards')">Keyboards</button>
-        <button onclick="openTab('PC-Case')">PC Case</button>
-        <button onclick="openTab('Networking')">Networking</button>
-        <button onclick="openTab('Motherboard')">Motherboard</button>
-        <button onclick="openTab('Hard-Drives')">Hard Drives</button>
-        <button onclick="openTab('Headphones-Headsets')">Headphones & Headsets</button>
-        <button onclick="openTab('Power-Supply')">Power Supply</button>
-        <button onclick="openTab('Upgrade-Kits')">Upgrade Kits</button>
+        <button onclick="showPopup()">CPU (Processors)</button>
+        <button onclick="showPopup()">Graphics Cards</button>
+        <button onclick="showPopup()">Gaming Mouse</button>
+        <button onclick="showPopup()">Mouse Pads</button>
+        <button onclick="showPopup()">Speakers</button>
+        <button onclick="showPopup()">CPU Coolers</button>
+        <button onclick="showPopup()">Solid State Drives (SSDs)</button>
+        <button onclick="showPopup()">Keyboards</button>
+        <button onclick="showPopup()">PC Case</button>
+        <button onclick="showPopup()">Networking</button>
+        <button onclick="showPopup()">Motherboard</button>
+        <button onclick="showPopup()">Hard Drives</button>
+        <button onclick="showPopup()">Headphones & Headsets</button>
+        <button onclick="showPopup()">Power Supply</button>
+        <button onclick="showPopup()">Upgrade Kits</button>
     </div>
 
     <script>
-        function openTab(tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent =
+        function showPopup() {
+            alert("This site is still under construction and will be launched soon.");
+        }
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById("filterDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.filter-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
