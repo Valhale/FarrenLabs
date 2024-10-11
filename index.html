@@ -3,73 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EVETECH - Computer Parts</title>
     <style>
         body {
             background-color: black;
-            color: #00ffff; / Neon Blue /
+            color: #00e5ff; /* Neon Blue */
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
         }
         h1, h2 {
-            color: #00ffff; / Neon Blue /
+            color: #00e5ff;
             text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            font-weight: bold;
+        }
+        .sponsored {
+            text-align: center;
+            color: #00e5ff;
+            font-size: 14px;
+            margin-top: -10px;
         }
         .container {
             width: 90%;
             margin: 0 auto;
             padding: 20px;
         }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
         .part-category {
-            border: 2px solid #00ffff; / Neon Blue /
+            border: 2px solid #00e5ff; /* Neon Blue */
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 20px;
         }
-        .part-category h2 {
-            color: #00ffff; / Neon Blue /
+        .options button {
+            background-color: #111;
+            color: #00e5ff;
+            padding: 14px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-size: 16px;
+            width: 300px;
+        }
+        .options button:hover {
+            background-color: #00e5ff;
+            color: #000;
         }
         label, select, input {
             display: block;
             margin: 10px 0;
-            color: #00ffff; / Neon Blue /
+            color: #00e5ff; /* Neon Blue */
         }
         select, input {
             width: 100%;
             padding: 5px;
             background-color: black;
-            border: 1px solid #00ffff; / Neon Blue /
-            color: #00ffff; / Neon Blue /
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
         }
         option {
             background-color: black;
-            color: #00ffff; / Neon Blue /
+            color: #00e5ff;
+        }
+        .filter-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #111;
+            color: #00e5ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .filter-button:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 30px;
+            bottom: 70px;
+            background-color: #111;
+            min-width: 200px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .dropdown-content button {
+            background-color: #111;
+            color: #00e5ff;
+            padding: 10px 16px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content button:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+        .dropdown-content.show {
+            display: block;
         }
         .cart {
-            border: 2px solid #00ffff;
+            border: 2px solid #00e5ff;
             padding: 15px;
             margin-top: 20px;
-            color: #00ffff;
+            color: #00e5ff;
+        }
+        .specifications {
+            margin-top: 10px;
+            color: #00e5ff;
         }
         button {
-            background-color: #00ffff;
+            background-color: #00e5ff;
             color: black;
             padding: 10px;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
         button:hover {
             background-color: lightgray;
             color: black;
-        }
-        .specifications {
-            margin-top: 10px;
-            color: #00ffff; / Neon Blue /
         }
     </style>
 </head>
 <body>
 
     <h1>EVETECH Computer Parts</h1>
+    <p class="sponsored">Sponsored by FARREN corp</p>
 
     <div class="container" id="selection-container">
         <!-- CPU Section -->
@@ -87,64 +164,7 @@
             </select>
             <div id="cpu-info" class="specifications" style="display: none;"></div>
         </div>
-
-        <!-- GPU Section -->
-        <div class="part-category">
-            <h2>GPU (Graphics Card)</h2>
-            <label for="gpu">Choose a GPU:</label>
-            <select id="gpu" onchange="showGPUInfo()">
-                <option value="">Select GPU</option>
-                <option value="NVIDIA RTX 3090">NVIDIA RTX 3090 - $1500</option>
-                <option value="NVIDIA RTX 3080">NVIDIA RTX 3080 - $800</option>
-                <option value="NVIDIA RTX 3070">NVIDIA RTX 3070 - $600</option>
-                <option value="AMD RX 6900 XT">AMD RX 6900 XT - $900</option>
-                <option value="AMD RX 6800 XT">AMD RX 6800 XT - $700</option>
-            </select>
-            <div id="gpu-info" class="specifications" style="display: none;"></div>
-        </div>
-
-        <!-- RAM Section -->
-        <div class="part-category">
-            <h2>RAM (Memory)</h2>
-            <label for="ram">Choose RAM:</label>
-            <select id="ram" onchange="showRAMInfo()">
-                <option value="">Select RAM</option>
-                <option value="8GB DDR4">8GB DDR4 - $40</option>
-                <option value="16GB DDR4">16GB DDR4 - $80</option>
-                <option value="32GB DDR4">32GB DDR4 - $150</option>
-                <option value="64GB DDR4">64GB DDR4 - $250</option>
-            </select>
-            <div id="ram-info" class="specifications" style="display: none;"></div>
-        </div>
-
-        <!-- Storage Section -->
-        <div class="part-category">
-            <h2>Storage (SSD/HDD)</h2>
-            <label for="storage">Choose Storage:</label>
-            <select id="storage" onchange="showStorageInfo()">
-                <option value="">Select Storage</option>
-                <option value="512GB SSD">512GB SSD - $60</option>
-                <option value="1TB SSD">1TB SSD - $100</option>
-                <option value="2TB SSD">2TB SSD - $200</option>
-                <option value="1TB HDD">1TB HDD - $50</option>
-                <option value="2TB HDD">2TB HDD - $80</option>
-            </select>
-            <div id="storage-info" class="specifications" style="display: none;"></div>
-        </div>
-
-        <!-- PSU Section -->
-        <div class="part-category">
-            <h2>Power Supply (PSU)</h2>
-            <label for="psu">Choose a PSU:</label>
-            <select id="psu" onchange="showPSUInfo()">
-                <option value="">Select PSU</option>
-                <option value="600W PSU">600W PSU - $50</option>
-                <option value="750W PSU">750W PSU - $80</option>
-                <option value="850W PSU">850W PSU - $100</option>
-                <option value="1000W PSU">1000W PSU - $150</option>
-            </select>
-            <div id="psu-info" class="specifications" style="display: none;"></div>
-        </div>
+        <!-- Add more part categories as needed -->
     </div>
 
     <!-- Cart Section -->
@@ -165,25 +185,7 @@
             "Intel Core i5": 250,
             "AMD Ryzen 9": 450,
             "AMD Ryzen 7": 350,
-            "AMD Ryzen 5": 250,
-            "NVIDIA RTX 3090": 1500,
-            "NVIDIA RTX 3080": 800,
-            "NVIDIA RTX 3070": 600,
-            "AMD RX 6900 XT": 900,
-            "AMD RX 6800 XT": 700,
-            "8GB DDR4": 40,
-            "16GB DDR4": 80,
-            "32GB DDR4": 150,
-            "64GB DDR4": 250,
-            "512GB SSD": 60,
-            "1TB SSD": 100,
-            "2TB SSD": 200,
-            "1TB HDD": 50,
-            "2TB HDD": 80,
-            "600W PSU": 50,
-            "750W PSU": 80,
-            "850W PSU": 100,
-            "1000W PSU": 150
+            "AMD Ryzen 5": 250
         };
 
         const specifications = {
@@ -192,25 +194,7 @@
             "Intel Core i5": "6 cores, 12 threads, base clock 2.9GHz, turbo 4.3GHz",
             "AMD Ryzen 9": "12 cores, 24 threads, base clock 3.8GHz, turbo 4.6GHz",
             "AMD Ryzen 7": "8 cores, 16 threads, base clock 3.6GHz, turbo 4.4GHz",
-            "AMD Ryzen 5": "6 cores, 12 threads, base clock 3.6GHz, turbo 4.2GHz",
-            "NVIDIA RTX 3090": "24GB GDDR6X, 10496 CUDA cores, 384-bit memory interface",
-            "NVIDIA RTX 3080": "10GB GDDR6X, 8704 CUDA cores, 320-bit memory interface",
-            "NVIDIA RTX 3070": "8GB GDDR6, 5888 CUDA cores, 256-bit memory interface",
-            "AMD RX 6900 XT": "16GB GDDR6, 5120 stream processors, 256-bit memory interface",
-            "AMD RX 6800 XT": "16GB GDDR6, 4608 stream processors, 256-bit memory interface",
-            "8GB DDR4": "DDR4-2400, 1.2V",
-            "16GB DDR4": "DDR4-2400, 1.2V",
-            "32GB DDR4": "DDR4-3200, 1.35V",
-            "64GB DDR4": "DDR4-3200, 1.35V",
-            "512GB SSD": "SATA III, 550 MB/s read, 500 MB/s write",
-            "1TB SSD": "SATA III, 550 MB/s read, 500 MB/s write",
-            "2TB SSD": "SATA III, 550 MB/s read, 500 MB/s write",
-            "1TB HDD": "7200 RPM, SATA III, 150 MB/s",
-            "2TB HDD": "7200 RPM, SATA III, 150 MB/s",
-            "600W PSU": "80 Plus Bronze, semi-modular",
-            "750W PSU": "80 Plus Gold, fully modular",
-            "850W PSU": "80 Plus Gold, fully modular",
-            "1000W PSU": "80 Plus Platinum, fully modular"
+            "AMD Ryzen 5": "6 cores, 12 threads, base clock 3.6GHz, turbo 4.2GHz"
         };
 
         function showCPUInfo() {
@@ -229,77 +213,11 @@
             }
         }
 
-        function showGPUInfo() {
-            const gpuSelect = document.getElementById('gpu');
-            const gpuInfo = document.getElementById('gpu-info');
-            if (gpuSelect.value) {
-                gpuInfo.innerHTML = `
-                    <strong>Specifications:</strong> ${specifications[gpuSelect.value]}<br>
-                    <label for="gpu-quantity">Quantity:</label>
-                    <input type="number" id="gpu-quantity" min="1" value="1">
-                    <button onclick="addToCart('GPU', '${gpuSelect.value}', document.getElementById('gpu-quantity').value)">Add to Cart</button>
-                `;
-                gpuInfo.style.display = 'block';
-            } else {
-                gpuInfo.style.display = 'none';
-            }
-        }
-
-        function showRAMInfo() {
-            const ramSelect = document.getElementById('ram');
-            const ramInfo = document.getElementById('ram-info');
-            if (ramSelect.value) {
-                ramInfo.innerHTML = `
-                    <strong>Specifications:</strong> ${specifications[ramSelect.value]}<br>
-                    <label for="ram-quantity">Quantity:</label>
-                    <input type="number" id="ram-quantity" min="1" value="1">
-                    <button onclick="addToCart('RAM', '${ramSelect.value}', document.getElementById('ram-quantity').value)">Add to Cart</button>
-                `;
-                ramInfo.style.display = 'block';
-            } else {
-                ramInfo.style.display = 'none';
-            }
-        }
-
-        function showStorageInfo() {
-            const storageSelect = document.getElementById('storage');
-            const storageInfo = document.getElementById('storage-info');
-            if (storageSelect.value) {
-                storageInfo.innerHTML = `
-                    <strong>Specifications:</strong> ${specifications[storageSelect.value]}<br>
-                    <label for="storage-quantity">Quantity:</label>
-                    <input type="number" id="storage-quantity" min="1" value="1">
-                    <button onclick="addToCart('Storage', '${storageSelect.value}', document.getElementById('storage-quantity').value)">Add to Cart</button>
-                `;
-                storageInfo.style.display = 'block';
-            } else {
-                storageInfo.style.display = 'none';
-            }
-        }
-
-        function showPSUInfo() {
-            const psuSelect = document.getElementById('psu');
-            const psuInfo = document.getElementById('psu-info');
-            if (psuSelect.value) {
-                psuInfo.innerHTML = `
-                    <strong>Specifications:</strong> ${specifications[psuSelect.value]}<br>
-                    <label for="psu-quantity">Quantity:</label>
-                    <input type="number" id="psu-quantity" min="1" value="1">
-                    <button onclick="addToCart('PSU', '${psuSelect.value}', document.getElementById('psu-quantity').value)">Add to Cart</button>
-                `;
-                psuInfo.style.display = 'block';
-            } else {
-                psuInfo.style.display = 'none';
-            }
-        }
-
         function addToCart(partType, partValue, quantity) {
-            if (partValue) {
+            if (partValue && quantity > 0) {
                 const unitPrice = prices[partValue];
                 const totalPrice = unitPrice * quantity;
-
                 cart.push({ part: partValue, quantity: quantity, price: totalPrice });
-
                 alert(`${partType} (${partValue}) x ${quantity} added to cart.`);
                 showCart();
             }
@@ -310,20 +228,14 @@
             const selectionContainer = document.getElementById('selection-container');
             const cartList = document.getElementById('cart-list');
             const totalPriceDisplay = document.getElementById('total-price');
-
-            // Clear existing list items
             cartList.innerHTML = '';
             let total = 0;
-
-            // Add cart items to the list and calculate total
             cart.forEach(item => {
                 const li = document.createElement('li');
                 li.textContent = `${item.part} x ${item.quantity} - $${item.price}`;
                 cartList.appendChild(li);
                 total += item.price;
             });
-
-            // Show the cart and hide the selection area
             totalPriceDisplay.textContent = `$${total}`;
             cartContainer.style.display = 'block';
             selectionContainer.style.display = 'none';
@@ -332,8 +244,6 @@
         function goBack() {
             const cartContainer = document.getElementById('cart-container');
             const selectionContainer = document.getElementById('selection-container');
-
-            // Hide the cart and show the selection area
             cartContainer.style.display = 'none';
             selectionContainer.style.display = 'block';
         }
